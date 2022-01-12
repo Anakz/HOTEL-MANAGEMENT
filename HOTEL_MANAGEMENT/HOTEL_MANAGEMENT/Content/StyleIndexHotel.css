@@ -183,3 +183,11 @@ body {
     border-radius: 50%;
     color: white;
 }
+.btnn {
+    background: #45465F; 
+    color: #fff;
+}
+.btnn:hover{
+    background: #fff;
+    transition: all 0.02s ease-in-out
+}

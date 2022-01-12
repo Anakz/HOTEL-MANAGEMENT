@@ -7,18 +7,19 @@
     var Today = DateTime.Now.ToString("yyyy-MM-dd");
     var Tomorrow = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd");
 }
-<link href="~/Content/StyleIndexHotel.css?v3.2.2" rel="stylesheet" type="text/css" media="screen" runat="server" />
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link href="~/Content/StyleIndexHotel.css?v3.2.20.0" rel="stylesheet" type="text/css" media="screen" runat="server" />
+@*<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />*@
 
 @using (Html.BeginForm("search", "rooms", FormMethod.Get))
 {
-    <div class="row" style="background-color: #DCDCDC">
-        <div style="padding-top:5rem;padding-bottom:6rem;width:80%;margin:auto">
-            <h3 style="text-align:center">Find deals on hotels, homes and much more...</h3>
-            <p style="text-align:center">From cosy country homes to funky city flats.</p>
-            <div class="form-inline" style="width:80%;margin:auto">
+    <div class="row" style="background-color: #1781A6;border-radius: 8px;">
+        <div style="padding-top:5rem;padding-bottom:3rem;width:80%;margin:auto">
+            <h3 style="text-align: center; color: white; margin-top: -2px; text-transform: uppercase">Find deals on hotels, homes and much more...</h3>
+            <p style="text-align: center; color: #45465F; ">From cosy country homes to funky city flats.</p>
+            <div class="form-inline" style="width:90%;margin-left: 40px;">
+
                 <div class="form-group mb-2">
-                    <input type="search" class="form-control" placeholder="Location" name="City" />
+                    <input type="search" class="form-control" required placeholder="Location" name="City" />
                     <input type="date" class="form-control" id="Start_Day" name="StartDay" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@Today" onchange="BanDate()" />
                     <input type="date" class="form-control" id="End_Day" name="EndDay" min="@Tomorrow" value="@Tomorrow" />
                     <select class="form-control" aria-label="Default select example" name="TypeRoom" required>
@@ -27,22 +28,26 @@
                         <option value="2">Double</option>
                         <option value="3">Family</option>
                     </select>
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btnn">Search</button>
                 </div>
+                <header class=" text-center" style="padding-top: 2%; color: #fff;">
+                    <h1 class="display-4 text-uppercase">Find your Way</h1>
+                    <p style=" color: #fff;" class="font-italic text-muted mb-1">Travelling is the best way to learn new things, whether it be a new language or new culture because you’re experiencing it first hand instead of just reading or looking at pictures. It broadens your view of the world.</p>
+                </header>
             </div>
         </div>
     </div>
 
 }
-<section class="py-5 header text-center" style="padding-top: 6%; color: #1781A6">
+@*<section class="py-5 header text-center" style="padding-top: -2%; color: #1781A6">
     <div class="container py-4">
         <header>
-            <h1 class="display-4">Find your Way</h1>
+            <h1 class="display-4 text-uppercase">Find your Way</h1>
             <p class="font-italic text-muted mb-1">Travelling is the best way to learn new things, whether it be a new language or new culture because you’re experiencing it first hand instead of just reading or looking at pictures. It broadens your view of the world.</p>
         </header>
     </div>
-</section>
-<h3 class="text-center" style="padding-top:5%; color: #1781A6 "><strong>Browse by property Hotels</strong></h3>
+</section>*@
+<h3 class="text-center text-uppercase" style="padding-top:5%; color: #1781A6 "><strong>Browse by property Hotels</strong></h3>
 <section style="padding:0% 4% 6% 20%">
     <div class="row" style="width:100%;margin:auto">
         @foreach (var item in Model.Hotels)
@@ -65,7 +70,7 @@
     </div>
 </section>
 <section>
-    <h3 class="text-center" style="padding-top:0%;padding-bottom:0%; color: #1781A6"><strong>Homes guests love</strong></h3>
+    <h3 class="text-center text-uppercase" style="padding-top:0%;padding-bottom:0%; color: #1781A6"><strong>Homes guests love</strong></h3>
     <div class="tab1cards" style="width:100%;margin:auto">
         <div id="wrapper" style="margin-top:0;margin-bottom:3%">
             <div id="carousel">
@@ -107,7 +112,7 @@
 </section>
 
 <section class="section section-default mt-none mb-none" style="padding: 0% 0 6% 0;  color: #1781A6; margin-bottom:0%">
-    <h3 class="text-center" style="padding-top:0%;padding-bottom:0%"><strong>Our Partners</strong></h3>
+    <h3 class="text-center text-uppercase" style="padding-top:0%;padding-bottom:0%"><strong>Our Partners</strong></h3>
     <div class="container">
         <strong>
             <div class="row">

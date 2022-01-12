@@ -231,9 +231,11 @@
     <Content Include="Content\StyleCreateRoom.css" />
     <Content Include="Content\StyleDetailsHotel.css" />
     <Content Include="Content\StyleDetailsRoom.css" />
+    <Content Include="Content\StyleDetailsUser.css" />
     <Content Include="Content\StyleEditRoom.css" />
     <Content Include="Content\StyleIndexHotel.css" />
     <Content Include="Content\StyleIndexRoom.css" />
+    <Content Include="Content\StyleRegister.css" />
     <Content Include="Content\StyleLogin.css" />
     <Content Include="Content\StyleIndexUser.css" />
     <Content Include="favicon.ico" />
@@ -315,6 +317,13 @@
     <Content Include="Views\Hotels\Index - Copy.cshtml" />
     <Content Include="Views\Rooms\Create - Copy.cshtml" />
     <Content Include="Views\Rooms\Edit - Copy.cshtml" />
+    <Content Include="Views\Users\Create - Copy.cshtml" />
+    <Content Include="Views\Hotels\Create - Copy.cshtml" />
+    <Content Include="Views\Hotels\Edit - Copy.cshtml" />
+    <Content Include="Views\Reservations\Create - Copy.cshtml" />
+    <Content Include="Views\Reservations\Edit - Copy.cshtml" />
+    <Content Include="Views\Users\Edit - Copy.cshtml" />
+    <Content Include="Views\Users\Details - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

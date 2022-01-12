@@ -11,7 +11,8 @@ namespace HOTEL_MANAGEMENT.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Hotel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,13 +23,21 @@ namespace HOTEL_MANAGEMENT.Models
         }
     
         public int Id_Hotel { get; set; }
+
+        [Display(Name = "Hotel name")]
         public string Name_Hotel { get; set; }
+        [Display(Name = "Address")]
         public string Address_Hotel { get; set; }
+        [Display(Name = "City hotel")]
         public string City_Hotel { get; set; }
         public int Stars { get; set; }
+        [Display(Name = "Id user")]
         public Nullable<int> Id_user { get; set; }
+        [Display(Name = "Description hotel")]
         public string Description_Hotel { get; set; }
+        [Display(Name = "Image hotel")]
         public string Image_Hotel { get; set; }
+        [Display(Name = "Number room")]
         public Nullable<int> Number_Room { get; set; }
         public string Telephone { get; set; }
     

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -73,13 +74,23 @@ namespace HOTEL_MANAGEMENT.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User user = db.Users.Find(id);
-            if (Session["Roles"].ToString().ToLower() == "true")
+            if (Session["Roles"] != null && Session["Roles"].ToString().ToLower() == "true" || Int32.Parse(Session["Id_user"].ToString()) == id)
             {
                 if (user == null)
                 {
                     return HttpNotFound();
                 }
-                return View(user);
+                var numberComment = db.Comments.Where(comment => comment.Id_user == user.Id_user).Count();
+                var numberHotel = db.Hotels.Where(hotel => hotel.Id_user == user.Id_user).Count();
+                var numberReservetion = db.Reservations.Where(reservation => reservation.Id_user == user.Id_user).Count();
+                ExpandoObject expandoObject = new ExpandoObject();
+                dynamic model = expandoObject;
+                model.User = user;
+                model.numberComment = numberComment;
+                model.numberHotel = numberHotel;
+                model.numberReservetion = numberReservetion;
+
+                return View(model);
             }
             return RedirectToAction("ErrorAuthorisation", "Home");
         }
@@ -154,7 +165,7 @@ namespace HOTEL_MANAGEMENT.Controllers
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Hotels");
             }
             return View(user);
         }

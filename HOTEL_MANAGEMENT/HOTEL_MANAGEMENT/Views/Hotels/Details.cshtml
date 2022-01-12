@@ -72,7 +72,7 @@
             <i class="far fa-eye"></i>
             <b>See more</b>
         </a>
-        @if (Session["Id_user"] != null && Session["Roles"].ToString().ToLower() == "true")
+        @if (Session["Id_user"] != null && Session["Roles"]!= null && Session["Roles"].ToString().ToLower() == "true")
         {
             <a href="/Rooms/Create" style="float: right;margin-right: 8px;" class="btn btn-primary">
                 <i class="fas fa-plus"></i>
@@ -215,7 +215,7 @@
                                                 <a href="/Comments/Edit/@item.Id_Comment" style="color: #45465F" title="Edit"><i class="fas fa-edit"></i></a>
                                                 <a href="/Comments/Delete/@item.Id_Comment" style="color: #45465F" title="Delete"><i class="fas fa-trash-alt"></i></a>
                                             }
-                                            @if (Session["Id_user"] != null && Session["Roles"].ToString().ToLower()== "true" && Int32.Parse(Session["Id_user"].ToString()) != item.Id_user)
+                                            @if (Session["Id_user"] != null && Session["Roles"]!= null && Session["Roles"].ToString().ToLower()== "true" && Int32.Parse(Session["Id_user"].ToString()) != item.Id_user)
                                             {
                                                 @*<a href="/Comments/Edit/@item.Id_Comment" style="color: #45465F" title="Edit"><i class="fas fa-edit"></i></a>*@
                                                 <a href="/Comments/Delete/@item.Id_Comment" style="color: #45465F" title="Delete"><i class="fas fa-trash-alt"></i></a>

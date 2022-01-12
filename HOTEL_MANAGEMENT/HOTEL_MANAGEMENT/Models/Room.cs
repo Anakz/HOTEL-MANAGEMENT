@@ -11,7 +11,8 @@ namespace HOTEL_MANAGEMENT.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Room
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,20 @@ namespace HOTEL_MANAGEMENT.Models
         }
     
         public int Id_Room { get; set; }
+
+
+        [Display(Name = "Type room")]
+
         public int Type_Room { get; set; }
+
+        [Range(1, 999999, ErrorMessage = "Price not accepted")]
         public double Price { get; set; }
+
+
+        [Display(Name = "Id hotel")]
         public int Id_Hotel { get; set; }
+
+        [Required]
         public string Image_Room { get; set; }
     
         public virtual Hotel Hotel { get; set; }

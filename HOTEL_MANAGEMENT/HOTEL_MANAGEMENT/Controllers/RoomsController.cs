@@ -19,6 +19,12 @@ namespace HOTEL_MANAGEMENT.Controllers
         //Search
         public ActionResult Search(string City, int? TypeRoom, string StartDay, string EndDay)
         {
+            if (TypeRoom.ToString() == "Open this select menu" || TypeRoom == null)
+            {
+                ViewData["ErrorTypeRoom"] = "Please, verify the fields";
+                return RedirectToAction("Index", "Hotels");
+            }
+
             Session["Name_Hotel"] = null;
 
             DateTime Begin_Date = Convert.ToDateTime(StartDay);

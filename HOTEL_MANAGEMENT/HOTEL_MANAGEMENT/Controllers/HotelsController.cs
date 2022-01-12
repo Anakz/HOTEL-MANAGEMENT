@@ -111,7 +111,6 @@ namespace HOTEL_MANAGEMENT.Controllers
                     hotel.Image_Hotel = imagePath;
                 }
 
-
                 hotel.Id_user = Int32.Parse(Session["Id_user"].ToString());
 
                 db.Hotels.Add(hotel);
