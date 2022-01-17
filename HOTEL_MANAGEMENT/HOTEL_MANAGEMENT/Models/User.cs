@@ -11,8 +11,7 @@ namespace HOTEL_MANAGEMENT.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,21 +23,9 @@ namespace HOTEL_MANAGEMENT.Models
         }
     
         public int Id_user { get; set; }
-
-        [Required(ErrorMessage ="This field is required")]
-        [Display(Name = "First name")]
         public string First_Name { get; set; }
-
-        [Required(ErrorMessage = "This field is required")]
-        [Display(Name = "Last name")]
         public string Last_Name { get; set; }
-
-        //[Required(ErrorMessage = "This field is required")]
-        //[Display(Name = "Password")]
         public string Email { get; set; }
-
-        //[Required(ErrorMessage = "This field is required")]
-        [Display(Name = "Password")]
         public string Pwd { get; set; }
         public Nullable<bool> Roles { get; set; }
     

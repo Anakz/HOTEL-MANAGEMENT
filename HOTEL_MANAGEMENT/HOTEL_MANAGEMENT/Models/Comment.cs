@@ -11,20 +11,14 @@ namespace HOTEL_MANAGEMENT.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Comment
     {
         public int Id_Comment { get; set; }
-        [Display(Name = "Review")]
         public bool Opinion { get; set; }
-        [Display(Name = "Comment")]
         public string Comment1 { get; set; }
-        [Display(Name = "Date comment")]
         public System.DateTime Date_Comment { get; set; }
-        [Display(Name = "Id user")]
         public int Id_user { get; set; }
-        [Display(Name = "Id hotel")]
         public int Id_Hotel { get; set; }
     
         public virtual Hotel Hotel { get; set; }

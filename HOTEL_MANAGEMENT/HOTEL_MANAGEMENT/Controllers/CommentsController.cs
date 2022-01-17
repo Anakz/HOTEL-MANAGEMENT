@@ -110,7 +110,7 @@ namespace HOTEL_MANAGEMENT.Controllers
 
                 comment.Opinion = sentiment;
 
-                comment.Date_Comment = DateTime.Now;
+                //comment.Date_Comment = DateTime.Now;
                 comment.Id_user = (int)Session["Id_user"];
                 comment.Id_Hotel = (int)(Session["Id_Hotel"]);
 
@@ -135,7 +135,7 @@ namespace HOTEL_MANAGEMENT.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Comment comment = db.Comments.Find(id);
-            if (comment.Id_user == Int32.Parse(Session["Id_user"].ToString()))
+            if (comment.Id_user == Int32.Parse(Session["Id_user"].ToString()) || Session["Roles"] != null && Session["Roles"].ToString().ToLower() == "true")
             {
                 if (comment == null)
                 {
@@ -154,7 +154,7 @@ namespace HOTEL_MANAGEMENT.Controllers
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details/" + Session["Id_Hotel"], "Hotels");
         }
 
         protected override void Dispose(bool disposing)

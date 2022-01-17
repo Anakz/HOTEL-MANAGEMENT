@@ -143,7 +143,7 @@ namespace HOTEL_MANAGEMENT.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User user = db.Users.Find(id);
-            if (user.Id_user == Int32.Parse(Session["Id_user"].ToString()))
+            if (user.Id_user == Int32.Parse(Session["Id_user"].ToString()) || Session["Roles"]!= null && Session["Roles"].ToString().ToLower() == "true")
             {
                 if (user == null)
                 {
@@ -163,6 +163,14 @@ namespace HOTEL_MANAGEMENT.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (user.Roles.ToString() == "True")
+                {
+                    user.Roles = true;
+                }
+                if (Session["Id_user"]!= null && Int32.Parse(Session["Id_user"].ToString()) == user.Id_user)
+                {
+                    Session["First_Name"] = user.First_Name;
+                }
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index", "Hotels");

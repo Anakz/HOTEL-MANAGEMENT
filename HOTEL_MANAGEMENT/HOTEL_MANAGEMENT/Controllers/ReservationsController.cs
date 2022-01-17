@@ -29,11 +29,6 @@ namespace HOTEL_MANAGEMENT.Controllers
                     int Id_user = Int32.Parse(Session["Id_user"].ToString());
                     var reservations = db.Reservations.Where(r => r.Id_user == Id_user).Include(r => r.Room).Include(r => r.User).ToList();
 
-                    //var room = (from re in reservations
-                    //                join ro in db.Rooms
-                    //                on re.Id_Room equals ro.Id_Room
-                    //                select ro);
-
                     var rooms = db.Rooms.Include(h => h.Hotel);
                     var room = (from ro in rooms
                                     join re in db.Reservations.Where(r => r.Id_user == Id_user)

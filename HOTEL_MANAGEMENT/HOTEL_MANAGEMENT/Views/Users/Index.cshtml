@@ -71,6 +71,7 @@
                 </td>
                 <td style="padding: 1.5% 0%;">
                     <a href="/Users/Details/@item.Id_user" class="Button btn"><i class="fas fa-info"></i></a>
+                    <a href="/Users/Edit/@item.Id_user" class="Button btn"><i class="fas fa-edit"></i></a>
                     @if (item.Roles.ToString().ToLower() != "true")
                     {
                         <a href="/Users/Delete/@item.Id_user" class="Button btn"><i class="fas fa-trash-alt"></i></a>
@@ -80,14 +81,14 @@
                         <a href="/Users/Delete/@item.Id_user" class="Button btn disabled"><i class="fas fa-trash-alt"></i></a>
                     }
 
-                    @if (Int32.Parse(Session["Id_user"].ToString()) == item.Id_user)
+                    @*@if (Int32.Parse(Session["Id_user"].ToString()) == item.Id_user)
                     {
                         <a href="/Users/Edit/@item.Id_user" class="Button btn"><i class="fas fa-edit"></i></a>
                     }
                     else
                     {
                         <a href="/Users/Edit/@item.Id_user" class="Button btn disabled"><i class="fas fa-edit"></i></a>
-                    }
+                    }*@
 
                 </td>
             </tr>

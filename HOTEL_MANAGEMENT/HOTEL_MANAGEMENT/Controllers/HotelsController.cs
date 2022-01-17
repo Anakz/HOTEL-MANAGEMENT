@@ -76,7 +76,7 @@ namespace HOTEL_MANAGEMENT.Controllers
             {
                 return RedirectToAction("Login", "Users");
             }
-            if (Session["Roles"].ToString().ToLower() == "true")
+            if (Session["Roles"] != null && Session["Roles"].ToString().ToLower() == "true")
             {
                 ViewBag.Id_user = new SelectList(db.Users, "Id_user", "First_Name");
                 return View();
@@ -134,7 +134,7 @@ namespace HOTEL_MANAGEMENT.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Hotel hotel = db.Hotels.Find(id);
-            if (Session["Roles"].ToString().ToLower() == "true")
+            if (Session["Roles"] != null && Session["Roles"].ToString().ToLower() == "true")
             {
                 if (hotel == null)
                 {
@@ -191,7 +191,7 @@ namespace HOTEL_MANAGEMENT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            if (Session["Roles"].ToString().ToLower() == "true")
+            if (Session["Roles"] != null && Session["Roles"].ToString().ToLower() == "true")
             {
                 Hotel hotel = db.Hotels.Find(id);
                 if (hotel == null)
